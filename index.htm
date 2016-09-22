@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+
+    <!-- Latest compiled and minified JavaScript -->
+   
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/ng-template" id="red.htm">
+        <div style="background-color:#ff0000; height:100px;">
+            <h1 style="line-height:100px; text-align:center;">Red</h1>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="green.htm">
+        <div style="background-color:#7FFF00; height:100px;">
+            <h1 style="line-height:100px; text-align:center;">Green</h1>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="blue.htm">
+        <div style="background-color:#008000; height:100px;">
+            <h1 style="line-height:100px; text-align:center;">Blue</h1>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="main.htm">
+        <div style="background-color:#000000; height:100px;">
+            <h1 style="line-height:100px; text-align:center;">Blue</h1>
+        </div>
+    </script>
+</head>
+<body ng-app="myApp">
+
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="col-md-12">
+                <ul>
+                    <li><a href="#/">Main</a></li>
+                    <li><a href="#red">Red</a></li>
+                    <li><a href="#green">Green</a></li>
+                    <li><a href="#blue">Blue</a></li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <h3>{{5 + 8}}</h3>
+            </div>
+            <div class="col-md-12">
+                <div ng-view></div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script>
+        var myApp = angular.module("myApp", ['ngRoute']);
+
+            myApp.config(['$routeProvider','$locationProvider', function ($routeProvider, $locationProvider) {
+                $routeProvider
+                .when("/", {
+                    templateUrl: "main.htm"
+                })
+                .when("/red", {
+                    templateUrl: "red.htm"
+                })
+                .when("/green", {
+                    templateUrl: "green.htm"
+                })
+                .when("/blue", {
+                    templateUrl: "blue.htm"
+                });
+                
+                 $locationProvider.html5Mode(true);
+            }]);
+    </script>
+</body>
+</html>
