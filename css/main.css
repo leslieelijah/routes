@@ -1,0 +1,15 @@
+﻿#navRoute{ margin-top:25px;
+        border-radius:8px;
+        border:1px solid #0094ff;
+        padding:10px;
+        }
+
+#navRoute ul { list-style:none;
+            margin:0px -40px;
+            }
+
+#navRoute ul li { display:inline;
+               background-color:burlywood;
+               border-right:1px solid #808080;
+               padding:5px 10px;
+               }
